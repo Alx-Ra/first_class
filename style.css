@@ -1,3 +1,45 @@
+body {
+    background-color: #FEF3E2;
+}
+
 h1 {
     text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 0;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 400px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.img {
+    text-align: center;
+}
+
+a {
+    font-size: 35px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: black;
 }

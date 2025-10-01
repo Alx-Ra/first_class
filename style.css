@@ -8,19 +8,19 @@ h1 {
 
 .card-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 5px;
     overflow-x: auto;
-    padding: 0;
+    padding: 20px;
     flex-wrap: nowrap;
     scroll-behavior: smooth;
+    scroll-padding: 20px;
 }
 
 .card {
     flex: 0 0 auto;
     width: 400px;
     padding: 20px;
-    margin: 20px auto;
     border: 1px solid #ccc;
     border-radius: 12px;
     background-color: white;

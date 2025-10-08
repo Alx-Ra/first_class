@@ -20,6 +20,7 @@ h1 {
 .card {
     flex: 0 0 auto;
     width: 400px;
+    height: 380px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 12px;
@@ -42,4 +43,11 @@ a {
   align-items: center;
   height: 100px;
   color: black;
+}
+
+#card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -7,7 +7,10 @@ const cartes = [
         titre: "Panthéon",
         image: "images/panthéon.jpg",
         texte: "Un des campus où vous pouvez suivre notre formation.",
-        coords: [48.8425, 2.3393],
+        pins: [
+            {coords: [48.8425, 2.3393], label: "panthéon"},
+            {coords: [48.82623, 2.36085], label: "autre campus"},
+        ],
         zoom: 16,
     },
     {
@@ -15,7 +18,9 @@ const cartes = [
         titre: "centre Pierre Mendes France",
         image: "images/tolbiac.jpg",
         texte: "un autre campus où vous pouvez suivre notre formation",
-        coords: [48.82623, 2.36085],
+        pins: [
+            {coords: [48.82623, 2.36085], label: "centre Tolbiac"},
+        ],
         zoom: 16,
     },
 ];
@@ -30,17 +35,18 @@ if (carte) {
     <p>${carte.texte}</p>
     <div id="map" style="width:400px;height:300px;margin-top:20px;border-radius:10px;"></div>
     `;
-const map = L.map("map").setView(carte.coords, carte.zoom);
+const map = L.map("map").setView(carte.pins[0].coords, carte.zoom);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
   }).addTo(map);
-  
+
 map.attributionControl.setPrefix(false);
 
-const marker = L.marker(carte.coords).addTo(map);
-  marker.bindPopup(`<b>${carte.titre}</b>`).openPopup();
+carte.pins.forEach(pin => {
+    L.marker(pin.coords).addTo(map).bindPopup(`${pin.label}`);
+});
 
 } else {
   container.innerHTML = "<p>Carte non trouvée.</p>";

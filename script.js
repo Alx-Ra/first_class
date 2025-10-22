@@ -35,7 +35,9 @@ if (carte) {
     <p>${carte.texte}</p>
     <div id="map" style="width:400px;height:300px;margin-top:20px;border-radius:10px;"></div>
     `;
-const map = L.map("map").setView(carte.pins[0].coords, carte.zoom);
+const map = L.map("map");
+const latlngs = carte.pins.map(pin => pin.coords);
+map.fitBounds(latlngs, {padding: [50, 50]});
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,

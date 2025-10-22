@@ -34,8 +34,10 @@ const map = L.map("map").setView(carte.coords, carte.zoom);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+    attribution: '© OpenStreetMap'
   }).addTo(map);
+  
+map.attributionControl.setPrefix(false);
 
 const marker = L.marker(carte.coords).addTo(map);
   marker.bindPopup(`<b>${carte.titre}</b>`).openPopup();

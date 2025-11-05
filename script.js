@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Aucun film trouvé pour ce genre.";
         cardsContainer.appendChild(p);
       } else {
-       
+        // créer chaque carte proprement (évite innerHTML +=)
         filtered.forEach(carte => {
           const link = document.createElement("a");
           link.href = `view.html?id=${encodeURIComponent(carte.id)}`;
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
           link.style.color = "black";
 
           const card = document.createElement("div");
-          card.className = "card"; 
+          card.className = "card"; // applique ton CSS existant
 
           const img = document.createElement("img");
           img.src = carte.image;
